@@ -1,0 +1,26 @@
+version: "3.8"
+services: 
+  app:
+    container_name: "app_phpjson"
+    image: "hanifmuhammad/frameduz-php:7.4-apache"
+    ports: 
+      - 8082:80
+    volumes: 
+      # - /Users/hanifmuhammad/Sites/phpjson:/var/www/html
+      # - /Users/hanifmuhammad/Sites/phpjson/vhost:/etc/apache2/sites-available/
+      - .:/var/www/html
+      - ./vhost:/etc/apache2/sites-available/
+    environment: 
+      MYSQL_HOST: "mysql"
+      MYSQL_PORT: "3306"
+      MYSQL_USER: "root"
+      MYSQL_PASS: "root"
+      MYSQL_DBNAME: "mysql_database"
+    networks: 
+      - network
+
+networks: 
+  network:
+    name: "localsite"
+    external: true
+
