@@ -10,17 +10,5 @@ services:
       # - /Users/hanifmuhammad/Sites/phpjson/vhost:/etc/apache2/sites-available/
       - .:/var/www/html
       - ./vhost:/etc/apache2/sites-available/
-    environment: 
-      MYSQL_HOST: "mysql"
-      MYSQL_PORT: "3306"
-      MYSQL_USER: "root"
-      MYSQL_PASS: "root"
-      MYSQL_DBNAME: "mysql_database"
-    networks: 
-      - network
 
-networks: 
-  network:
-    name: "localsite"
-    external: true
 
